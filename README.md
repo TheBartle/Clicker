@@ -10,7 +10,8 @@
 
 ## To do:
 - [x] Add money by clicking on the cookie.
-- [x] Add shop (Money per second)
-- [x] Add advanced shop
+- [x] Add shop (Money per second).
+- [x] Add advanced shop.
 - [ ] Add saving progress.
-- [ ] Add history (For example: You're a baker. Your goal is...)
+- [ ] Add goal.
+- [ ] Add history (For example: You're a baker.).
