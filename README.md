@@ -14,4 +14,5 @@
 - [x] Add advanced shop.
 - [ ] Add saving progress.
 - [ ] Add goal.
+- [ ] Add upgrades.
 - [ ] Add history (For example: You're a baker.).
