@@ -1,0 +1,93 @@
+body{
+    font-family: 'Purpose', Fallback, sans-serif;
+    background: url("img/Wallpaper.png");
+    color: white;
+    margin: 0;
+}
+#container{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: auto;
+    height: auto;
+    display: inherit;
+}
+.counter{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.35);
+}
+.cookie{
+    width: 300px;
+    height: 300px;
+    transform: scale(0.96);
+    transition: 0.1s;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline;
+    border-radius: 30%;
+    position: relative;
+    padding: 0;
+}
+.active{
+    transform: scale(1);
+}
+.miniCookie{
+    width: 120px;
+    height: 42px;
+}
+#shop{
+    background: rgb(65, 65, 65);
+    font-size: 32px;
+    position: relative;
+}
+.Shop{
+    font-size: 40px !important;
+}
+.Bakers{
+    font-size: 32px;
+}
+.BakersCost{
+    font-size: 32px;
+    color: #c44242;
+}
+.GrandmaCost{
+    font-size: 32px;
+    color: #c44242;
+}
+.buyBT{
+    font-size: 40px !important;
+    background: rgba(178, 178, 178, 0.7);
+    border: none;
+    border: 2px solid rgba(255, 255, 255, 0.53);
+    transition: 0.5s;
+    border-radius: 4px;
+}
+.buyBT:hover{
+    background: rgba(255, 255, 255, 0.76);
+    border: 2px solid rgba(255, 255, 255, 0.65);
+}
+#HamO{
+    display: block;
+}
+#moneyCount{
+    text-align: center;
+    font-size: 64px;
+}
+.animate-left{
+    position:relative;
+    animation:animateleft 0.7s;
+}
+.animate-right{
+    position:relative;
+    animation:animateright 0.7s;
+}
+@keyframes animateleft{from{left:-300px;opacity:0} to{left:0;opacity:1}}
+@keyframes animateright{from{left:300px;opacity:0} to{left:0;opacity:1}}
+
+@font-face {
+  font-family: 'Purpose';
+  src:  url('font.ttf') format('truetype');
+}
