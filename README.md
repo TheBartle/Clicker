@@ -1,5 +1,7 @@
 # Clicker Project
 
+#This branch is old, new is in ProMaster branch
+
 ## UPDATES
 
 > LAST UPDATE ***DATE:*** **29.09.2017** | ***TIME:*** **20:10**
