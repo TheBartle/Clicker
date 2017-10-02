@@ -1,22 +1,33 @@
 body{
-    font-family: 'Purpose', Fallback, sans-serif;
     background: url("img/Wallpaper.png");
     color: white;
     margin: 0;
+    font-family: 'Roboto', sans-serif;
 }
-#container{
+#game{
     margin-left: auto;
     margin-right: auto;
     text-align: center;
     width: auto;
     height: auto;
-    display: inherit;
+    display: table;
+}
+#shop{
+  background: rgb(65, 65, 65);
+  font-size: 32px;
+  position: fixed;
+}
+#shopText{
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 .counter{
     margin-left: auto;
     margin-right: auto;
     display: block;
     text-align: center;
+    font-family: 'Purpose', Fallback, sans-serif !important;
     background: rgba(255, 255, 255, 0.35);
 }
 .cookie{
@@ -38,27 +49,24 @@ body{
     width: 120px;
     height: 42px;
 }
-#shop{
-    background: rgb(65, 65, 65);
-    font-size: 32px;
-    position: relative;
-}
 .Shop{
-    font-size: 40px !important;
+    font-size: 35px !important;
 }
 .Bakers{
-    font-size: 32px;
+    font-size: 25px;
 }
-.BakersCost{
-    font-size: 32px;
-    color: #c44242;
+.Grandmas{
+  font-size: 25px;
 }
-.GrandmaCost{
-    font-size: 32px;
+.BakersUpgrade{
+  font-size: 25px;
+}
+.Cost{
+    font-size: 25px;
     color: #c44242;
 }
 .buyBT{
-    font-size: 40px !important;
+    font-size: 25px !important;
     background: rgba(178, 178, 178, 0.7);
     border: none;
     border: 2px solid rgba(255, 255, 255, 0.53);
@@ -69,8 +77,8 @@ body{
     background: rgba(255, 255, 255, 0.76);
     border: 2px solid rgba(255, 255, 255, 0.65);
 }
-#HamO{
-    display: block;
+.upgrades{
+    font-size: 35px !important;
 }
 #moneyCount{
     text-align: center;

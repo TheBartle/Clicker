@@ -4,35 +4,48 @@
     <meta charset="UTF-8">
     <title>Clicker Cookie By TheBartle</title>
     <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
-   <div id="container">
-       <img src="img/hamburger.svg" alt="MENU" id="HamO" onclick="shopOpen()">
+  <img src="img/hamburger.svg" alt="MENU" id="HamO" onclick="shopOpen()">
+  <img src="img/hamburger.svg" alt="MENU" style="display:none;" id="HamC" onclick="shopClose()">
+  <!--Shop-->
+<div id="shop" style="display: none;">
+  <div id="shopText">
+
+    <span class="Shop">Shop:</span><BR />
+
+    <span class="Bakers">Bakers: </span><span id="Bakers">0</span><BR />
+    <span class="Cost">Cost: </span><span id="BakersCost">15</span><BR />
+    <button class="buyBT" onclick="BuyBakers();">-!BUY!-</button><BR />
+
+    <span>----</span><BR />
+
+    <span class="Grandmas">Grandmas: </span><span id="Grandma">0</span><BR />
+    <span class="Cost">Cost: </span><span id="GrandmaCost">100</span><BR />
+    <button class="buyBT" onclick="BuyGrandma();">-!BUY!-</button><BR />
+
+    <span class="upgrades">UPGRADES: (x2)</span><BR />
+
+    <span>----</span><BR />
+
+    <span class="BakersUpgrade">Improvements to bakers: </span><span id="BakersUpgrade">0</span><BR />
+
+    <span class="Cost">Cost: </span><span id="BakersUpgradeCost">200</span><BR />
+    <button class="buyBT" onclick="BuyBakersUpgrade();">-!BUY!-</button>
+  </div>
+</div>
+
+  <div id="game">
        <!--<img src="img/IMPORTANT.png" alt="MENU" id="HamS" onclick="shopOpen()">-->
-       
-       <div id="shop" style="display: none;">
-          <img src="img/hamburger.svg" alt="MENU" id="HamC" onclick="shopClose()">
-          
-           <span class="Shop">Shop:</span><BR />
-           <span class="Bakers">Bakers: </span><span id="Bakers">0</span><BR />
-           <span class="BakersCost">Cost: </span><span id="BakersCost">15</span><BR />
-           <button class="buyBT" onclick="BuyBakers();">-!BUY!-</button><BR />
-            <!----------------------------------------------------------------->
-            <span>----------------------------------------------------------</span><BR />
-           <span class="Grandmas">Grandmas: </span><span id="Grandma">0</span><BR />
-           <span class="GrandmaCost">Cost: </span><span id="GrandmaCost">100</span><BR />
-           <button class="buyBT" onclick="BuyGrandma();">-!BUY!-</button>
-       </div>
-       
+
         <img src="img/cookie.png" alt="Cookie" class="cookie active" onclick="addMoney(1);"><BR />
        <div class="counter">
         <span id="moneyCount">0</span>
         <img src="img/Dollar.png" alt="Cookie" class="miniCookie">
        </div>
    </div>
-    
-    
-    <script src="game.js"></script>
+   <script src="game.js"></script>
 </body>
 </html>
