@@ -12,6 +12,8 @@
 
 > LAST UPDATE ***DATE:*** **02.10.2017**  | ***TIME:*** **20:00**
 
+> LAST UPDATE ***DATE:*** **02.10.2017**  | ***TIME:*** **20:30**
+
 ## To do:
 - [x] Add money by clicking on the cookie.
 - [x] Add shop (Money per second).

@@ -42,11 +42,10 @@ function BuyGrandma() {
         Money = Money - GrandmaCost;
         GrandmaCost = GrandmaCost + 25;
         Grandma = Grandma + 1;
-        Grandma * GrandmaPower;
         document.getElementById("Grandma").innerHTML = Grandma;
         document.getElementById("GrandmaCost").innerHTML = GrandmaCost;
         document.getElementById("moneyCount").innerHTML = Money;
-        GrandmaPower = GrandmaPower = 5;
+        GrandmaPower = GrandmaPower + 5;
         cor.play();
     }
     else {
@@ -72,10 +71,13 @@ window.setInterval(
     addMoney(GrandmaPower);
 }, 975);
 //Bakers
-window.setInterval(
-    function(){
-    addMoney(Bakers);
-}, 1000);
+if (Bakers >= 1) {
+  window.setInterval(
+      function(){
+      addMoney(Bakers);
+  }, 1000);
+}
+
 
 //SHOP
 function shopOpen() {
