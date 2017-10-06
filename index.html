@@ -11,28 +11,28 @@
   <img src="img/hamburger.svg" alt="MENU" id="HamO" onclick="shopOpen()">
   <img src="img/hamburger.svg" alt="MENU" style="display:none;" id="HamC" onclick="shopClose()">
   <!--Shop-->
-<div id="shop" style="display: none;">
+<div id="shop" class="animate-left" style="display: none;">
   <div id="shopText">
 
-    <span class="Shop">Shop:</span><BR />
+    <span class="Shop">Shop:</span><br />
+    
+    <span class="Bakers">Bakers: </span><span id="Bakers">0</span><br />
+    <span class="Cost">Cost: </span><span id="BakersCost">15</span><br />
+    <button class="buyBT" onclick="BuyBakers();">-!BUY!-</button><br />
 
-    <span class="Bakers">Bakers: </span><span id="Bakers">0</span><BR />
-    <span class="Cost">Cost: </span><span id="BakersCost">15</span><BR />
-    <button class="buyBT" onclick="BuyBakers();">-!BUY!-</button><BR />
+    <span>----</span><br />
 
-    <span>----</span><BR />
+    <span class="Grandmas">Grandmas: </span><span id="Grandma">0</span><br />
+    <span class="Cost">Cost: </span><span id="GrandmaCost">100</span><br />
+    <button class="buyBT" onclick="BuyGrandma();">-!BUY!-</button><br />
 
-    <span class="Grandmas">Grandmas: </span><span id="Grandma">0</span><BR />
-    <span class="Cost">Cost: </span><span id="GrandmaCost">100</span><BR />
-    <button class="buyBT" onclick="BuyGrandma();">-!BUY!-</button><BR />
+    <span>----</span><br />
+    <span class="upgrades">UPGRADES: (x2)</span><br />
 
-    <span class="upgrades">UPGRADES: (x2)</span><BR />
 
-    <span>----</span><BR />
+    <span class="BakersUpgrade">Improvements to bakers: </span><span id="BakersUpgrade">0</span><br />
 
-    <span class="BakersUpgrade">Improvements to bakers: </span><span id="BakersUpgrade">0</span><BR />
-
-    <span class="Cost">Cost: </span><span id="BakersUpgradeCost">200</span><BR />
+    <span class="Cost">Cost: </span><span id="BakersUpgradeCost">200</span><br />
     <button class="buyBT" onclick="BuyBakersUpgrade();">-!BUY!-</button>
   </div>
 </div>
@@ -40,12 +40,16 @@
   <div id="game">
        <!--<img src="img/IMPORTANT.png" alt="MENU" id="HamS" onclick="shopOpen()">-->
 
-        <img src="img/cookie.png" alt="Cookie" class="cookie active" onclick="addMoney(1);"><BR />
+        <img src="img/cookie.png" alt="Cookie" class="cookie active" onclick="addMoney(Click);"><br />
        <div class="counter">
-        <span id="moneyCount">0</span>
-        <img src="img/Dollar.png" alt="Cookie" class="miniCookie">
+        <span id="MoneyCount">0</span>
+        <img src="img/Dollar.png" alt="Cookie" class="miniCookie"><br />
+        <button class="save BT" onclick="Save()">SAVE</button>
+        <button class="load BT" onclick="Load()">LOAD</button>
        </div>
    </div>
+   <div id="elemnets" class="elemntsList">   
+    </div>
    <script src="game.js"></script>
 </body>
 </html>

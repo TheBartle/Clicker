@@ -3,6 +3,7 @@ $('img.cookie').on('click', function() {
     });
 
 var Money = 0;
+var Click = 1;
 var cor = new Audio('sound/Tink.mp3');
 var icor = new Audio('sound/Dong.mp3');
 
@@ -19,18 +20,17 @@ var BakersUpgradeCost = 200;
 
 function addMoney(number) {
     Money = Money + number;
-    document.getElementById("moneyCount").innerHTML = Money;
+    document.getElementById("MoneyCount").innerHTML = Money;
 }
 function BuyBakers() {
     if (Money >= BakersCost) {
         Money -= BakersCost;
         BakersCost = BakersCost + 5;
         Bakers += 1;
-        Bakers * BakersPower;
+        BakersPower += 1;
         document.getElementById("Bakers").innerHTML = Bakers;
         document.getElementById("BakersCost").innerHTML = BakersCost;
-        document.getElementById("moneyCount").innerHTML = Money;
-            BakersPower += 1;
+        document.getElementById("MoneyCount").innerHTML = Money;
         cor.play();
     }
     else {
@@ -44,7 +44,7 @@ function BuyGrandma() {
         Grandma = Grandma + 1;
         document.getElementById("Grandma").innerHTML = Grandma;
         document.getElementById("GrandmaCost").innerHTML = GrandmaCost;
-        document.getElementById("moneyCount").innerHTML = Money;
+        document.getElementById("MoneyCount").innerHTML = Money;
         GrandmaPower = GrandmaPower + 5;
         cor.play();
     }
@@ -71,22 +71,53 @@ window.setInterval(
     addMoney(GrandmaPower);
 }, 975);
 //Bakers
-if (Bakers >= 1) {
   window.setInterval(
       function(){
-      addMoney(Bakers);
+      addMoney(BakersPower);
   }, 1000);
-}
 
 
 //SHOP
 function shopOpen() {
     document.getElementById("shop").style.display = "block";
     document.getElementById("HamO").style.display = "none";
-    document.getElementById("HamC").style.display = "table";
+    document.getElementById("HamC").style.display = "block";
 }
 function shopClose() {
-    document.getElementById("shop").style.display = "none";
     document.getElementById("HamC").style.display = "none";
-    document.getElementById("HamO").style.display = "table";
+    document.getElementById("HamO").style.display = "block";
+    document.getElementById("shop").style.display = "none";
+}
+//SAVE
+function Save() {
+    cor.play();
+    localStorage.setItem("money", Money);
+    localStorage.setItem("bakers", Bakers);
+    localStorage.setItem("bakersCost", BakersCost);
+    localStorage.setItem("bakersPower", BakersPower);
+    localStorage.setItem("grandma", Grandma);
+    localStorage.setItem("grandmaCost", GrandmaCost);
+    localStorage.setItem("grandmaPower", GrandmaPower);              
+    localStorage.setItem("bakersUpgrade", BakersUpgrade);
+    localStorage.setItem("bakersUpgradeCost", BakersUpgradeCost);
+}
+function Load() {
+    cor.play();
+    Money = Money = localStorage.getItem("money"); Money++; Money--;
+    Bakers = Bakers = localStorage.getItem("bakers"); Bakers++; Bakers--;
+    BakersCost = BakersCost = localStorage.getItem("bakersCost"); BakersCost++; BakersCost--;
+    BakersPower = BakersPower = localStorage.getItem("bakersPower"); BakersPower++; BakersPower--;
+    Grandma = Grandma = localStorage.getItem("grandma"); Grandma++; Grandma--;
+    GrandmaCost = GrandmaCost = localStorage.getItem("grandmaCost"); GrandmaCost++; GrandmaCost--;
+    GrandmaPower = GrandmaPower = localStorage.getItem("grandmaPower"); GrandmaPower++; GrandmaPower--;
+    BakersUpgrade = BakersUpgrade = localStorage.getItem("bakersUpgrade"); BakersUpgrade++; BakersUpgrade--;
+    BakersUpgradeCost = BakersUpgradeCost = localStorage.getItem("bakersUpgradeCost"); BakersUpgradeCost++; BakersUpgradeCost--;
+    //-------------------------------------------------------//
+    document.getElementById("MoneyCount").innerHTML = Money;
+    document.getElementById("Bakers").innerHTML = Bakers;
+    document.getElementById("BakersCost").innerHTML = BakersCost;
+    document.getElementById("Grandma").innerHTML = Grandma;
+    document.getElementById("GrandmaCost").innerHTML = GrandmaCost;
+    document.getElementById("BakersUpgrade").innerHTML = BakersUpgrade;
+    document.getElementById("BakersUpgradeCost").innerHTML = BakersUpgradeCost;
 }
