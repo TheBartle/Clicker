@@ -2,21 +2,31 @@ $('img.cookie').on('click', function() {
         $('.cookie').toggleClass('active');
     });
 
-var Money = 0;
-var Click = 1;
-var cor = new Audio('sound/Tink.mp3');
-var icor = new Audio('sound/Dong.mp3');
+let Money = 0;
+let Click = 1;
+let ClickUpgradeCost = 30;
+let ClicksUpgrade = 0;
 
-var Bakers = 0;
-var BakersCost = 15;
-var BakersPower = 0;
+let cor = new Audio('sound/Tink.mp3');
+let icor = new Audio('sound/Dong.mp3');
 
-var Grandma = 0;
-var GrandmaCost = 100;
-var GrandmaPower = 0;
+let Bakers = 0;
+let BakersCost = 20;
+let BakersPower = 0;
 
-var BakersUpgrade = 0;
-var BakersUpgradeCost = 200;
+let Grandma = 0;
+let GrandmaCost = 400;
+let GrandmaPower = 0;
+
+let Grandad = 0;
+let GrandadCost = 1000;
+let GrandadPower = 0;
+
+let BakersUpgrade = 0;
+let BakersUpgradeCost = 200;
+
+let GrandmaUpgrade = 0;
+let GrandmaUpgradeCost = 425;
 
 function addMoney(number) {
     Money = Money + number;
@@ -25,12 +35,11 @@ function addMoney(number) {
 function BuyBakers() {
     if (Money >= BakersCost) {
         Money -= BakersCost;
-        BakersCost = BakersCost + 5;
+        BakersCost = BakersCost + 7;
         Bakers += 1;
         BakersPower += 1;
         document.getElementById("Bakers").innerHTML = Bakers;
         document.getElementById("BakersCost").innerHTML = BakersCost;
-        document.getElementById("MoneyCount").innerHTML = Money;
         cor.play();
     }
     else {
@@ -40,12 +49,25 @@ function BuyBakers() {
 function BuyGrandma() {
     if (Money >= GrandmaCost) {
         Money = Money - GrandmaCost;
-        GrandmaCost = GrandmaCost + 25;
+        GrandmaCost = GrandmaCost + 275;
         Grandma = Grandma + 1;
         document.getElementById("Grandma").innerHTML = Grandma;
         document.getElementById("GrandmaCost").innerHTML = GrandmaCost;
-        document.getElementById("MoneyCount").innerHTML = Money;
-        GrandmaPower = GrandmaPower + 5;
+        GrandmaPower = GrandmaPower + 4;
+        cor.play();
+    }
+    else {
+      icor.play();
+    }
+}
+function BuyGrandad() {
+    if (Money >= GrandadCost) {
+        Money = Money - GrandadCost;
+        GrandadCost = GrandadCost + 525;
+        Grandad = Grandad + 1;
+        document.getElementById("Grandad").innerHTML = Grandad;
+        document.getElementById("GrandadCost").innerHTML = GrandadCost;
+        GrandadPower = GrandadPower + 8;
         cor.play();
     }
     else {
@@ -55,7 +77,7 @@ function BuyGrandma() {
 function BuyBakersUpgrade() {
     if (Money >= BakersUpgradeCost) {
         Money = Money - BakersUpgradeCost;
-        BakersUpgradeCost = BakersUpgradeCost + 300;
+        BakersUpgradeCost = BakersUpgradeCost + 150;
         BakersUpgrade = BakersUpgrade + 1;
         BakersPower = BakersPower * 2;
         document.getElementById("BakersUpgrade").innerHTML = BakersUpgrade;
@@ -65,29 +87,56 @@ function BuyBakersUpgrade() {
       icor.play();
     }
 }
+function BuyGrandmaUpgrade() {
+    if (Money >= GrandmaUpgradeCost) {
+        Money = Money - GrandmaUpgradeCost;
+        GrandmaUpgradeCost = GrandmaUpgradeCost + 400;
+        GrandmaUpgrade = GrandmaUpgrade + 1;
+        GrandmaPower = GrandmaPower * 2;
+        document.getElementById("GrandmaUpgrade").innerHTML = GrandmaUpgrade;
+        document.getElementById("GrandmaUpgradeCost").innerHTML = GrandmaUpgradeCost;
+    }
+    else {
+      icor.play();
+    }
+}
+function BuyClickUpgrade() {
+    if (Money >= ClickUpgradeCost) {
+        Money = Money - ClickUpgradeCost;
+        Click = Click + 1;
+        ClicksUpgrade = ClicksUpgrade + 1;
+        ClickUpgradeCost = ClickUpgradeCost + 170;
+        document.getElementById("ClicksUpgrade").innerHTML = ClicksUpgrade;
+        document.getElementById("ClickUpgradeCost").innerHTML = ClickUpgradeCost;
+    }
+}
+
 //Grandmas
 window.setInterval(
     function(){
     addMoney(GrandmaPower);
-}, 975);
+}, 3000);
 //Bakers
   window.setInterval(
       function(){
       addMoney(BakersPower);
   }, 1000);
+ window.setInterval(
+      function(){
+      addMoney(GrandadPower);
+  }, 2000);
 
 
-//SHOP
-function shopOpen() {
-    document.getElementById("shop").style.display = "block";
-    document.getElementById("HamO").style.display = "none";
-    document.getElementById("HamC").style.display = "block";
-}
-function shopClose() {
-    document.getElementById("HamC").style.display = "none";
-    document.getElementById("HamO").style.display = "block";
-    document.getElementById("shop").style.display = "none";
-}
+//function shopOpen() {
+//    document.getElementById("shopL").style.display = "block";
+//    document.getElementById("HamO").style.display = "none";
+//    document.getElementById("HamC").style.display = "block";
+//}
+//function shopClose() {
+//    document.getElementById("HamC").style.display = "none";
+//    document.getElementById("HamO").style.display = "block";
+//    document.getElementById("shopL").style.display = "none";
+//}
 //SAVE
 function Save() {
     cor.play();
@@ -97,27 +146,51 @@ function Save() {
     localStorage.setItem("bakersPower", BakersPower);
     localStorage.setItem("grandma", Grandma);
     localStorage.setItem("grandmaCost", GrandmaCost);
-    localStorage.setItem("grandmaPower", GrandmaPower);              
+    localStorage.setItem("grandmaPower", GrandmaPower);
+    localStorage.setItem("grandad", Grandad);
+    localStorage.setItem("grandadCost", GrandadCost);
+    localStorage.setItem("grandadPower", GrandadPower);  
     localStorage.setItem("bakersUpgrade", BakersUpgrade);
     localStorage.setItem("bakersUpgradeCost", BakersUpgradeCost);
+    localStorage.setItem("click", Click);
+    localStorage.setItem("clicksUpgrade", ClicksUpgrade);
+    localStorage.setItem("clickUpgradeCost", ClickUpgradeCost);
 }
 function Load() {
-    cor.play();
-    Money = Money = localStorage.getItem("money"); Money++; Money--;
-    Bakers = Bakers = localStorage.getItem("bakers"); Bakers++; Bakers--;
-    BakersCost = BakersCost = localStorage.getItem("bakersCost"); BakersCost++; BakersCost--;
-    BakersPower = BakersPower = localStorage.getItem("bakersPower"); BakersPower++; BakersPower--;
-    Grandma = Grandma = localStorage.getItem("grandma"); Grandma++; Grandma--;
-    GrandmaCost = GrandmaCost = localStorage.getItem("grandmaCost"); GrandmaCost++; GrandmaCost--;
-    GrandmaPower = GrandmaPower = localStorage.getItem("grandmaPower"); GrandmaPower++; GrandmaPower--;
-    BakersUpgrade = BakersUpgrade = localStorage.getItem("bakersUpgrade"); BakersUpgrade++; BakersUpgrade--;
-    BakersUpgradeCost = BakersUpgradeCost = localStorage.getItem("bakersUpgradeCost"); BakersUpgradeCost++; BakersUpgradeCost--;
+    if("money" in localStorage){
+        alert("Congratulations! Load saved.");
+        cor.play();
+        Money = Money = localStorage.getItem("money"); Money++; Money--;
+        Bakers = Bakers = localStorage.getItem("bakers"); Bakers++; Bakers--;
+        BakersCost = BakersCost = localStorage.getItem("bakersCost"); BakersCost++; BakersCost--;
+        BakersPower = BakersPower = localStorage.getItem("bakersPower"); BakersPower++; BakersPower--;
+        Grandma = Grandma = localStorage.getItem("grandma"); Grandma++; Grandma--;
+        GrandmaCost = GrandmaCost = localStorage.getItem("grandmaCost"); GrandmaCost++; GrandmaCost--;
+        GrandmaPower = GrandmaPower = localStorage.getItem("grandmaPower"); GrandmaPower++; GrandmaPower--;
+        Grandma = Grandma = localStorage.getItem("grandad"); Grandad++; Grandad--;
+        GrandadCost = GrandadCost = localStorage.getItem("grandadCost"); GrandadCost++; GrandadCost--;
+        GrandadPower = GrandadPower = localStorage.getItem("granadaPower"); GrandadPower++; GrandadPower--;
+        BakersUpgrade = BakersUpgrade = localStorage.getItem("bakersUpgrade"); BakersUpgrade++; BakersUpgrade--;
+        BakersUpgradeCost = BakersUpgradeCost = localStorage.getItem("bakersUpgradeCost"); BakersUpgradeCost++;     BakersUpgradeCost--;
     //-------------------------------------------------------//
-    document.getElementById("MoneyCount").innerHTML = Money;
-    document.getElementById("Bakers").innerHTML = Bakers;
-    document.getElementById("BakersCost").innerHTML = BakersCost;
-    document.getElementById("Grandma").innerHTML = Grandma;
-    document.getElementById("GrandmaCost").innerHTML = GrandmaCost;
-    document.getElementById("BakersUpgrade").innerHTML = BakersUpgrade;
-    document.getElementById("BakersUpgradeCost").innerHTML = BakersUpgradeCost;
+        document.getElementById("MoneyCount").innerHTML = Money;
+        document.getElementById("Bakers").innerHTML = Bakers;
+        document.getElementById("BakersCost").innerHTML = BakersCost;
+        document.getElementById("Grandma").innerHTML = Grandma;
+        document.getElementById("GrandmaCost").innerHTML = GrandmaCost;
+        document.getElementById("BakersUpgrade").innerHTML = BakersUpgrade;
+        document.getElementById("BakersUpgradeCost").innerHTML = BakersUpgradeCost;}
+    else {
+        icor.play();
+        alert("You don't have SAVE!!! I can't load");
+    }   
 }
+function Reset() {
+    let c = confirm("Do you want reset progress?");
+    if (c == true) {
+        localStorage.clear();
+        alert("Cleared");
+    } else {
+        alert("Not reset");
+    }
+};
