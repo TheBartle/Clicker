@@ -1,210 +1,43 @@
-<<<<<<< HEAD
+<?php
+
+if(isset($_POST[]))
+
+?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Clicker Cookie By TheBartle</title>
-    <link rel="stylesheet" href="main.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="jquery.scrollTo.min.js"></script>
-</head>
-<body scroll="no">
-        <script>
-            jQuery(function($)
-		{
-			//zresetuj scrolla
-			$.scrollTo(0);
-                  $('#link1').click(function() { $.scrollTo($('.shop'), 500); });
-                  $('#link2').click(function() { $.scrollTo($('body'), 500); });
-                  $('#link6').click(function() { $.scrollTo($('body'), 1000); });
-                  $('#link3').click(function() { $.scrollTo($('#upgrades'), 1000); });
-                  $('#link4').click(function() { $.scrollTo($('.shop'), 500); });
-                  $('#link5').click(function() { $.scrollTo($('#upgrades'), 500); });
-                  $('#link7').click(function() { $.scrollTo($('#CookieRoobot'), 500); });
-                  $('#link8').click(function() { $.scrollTo($('.shop'), 500); });
-                  $('#link9').click(function() { $.scrollTo($('#GrandadUpgrade'), 500); });
-                  $('#link10').click(function() { $.scrollTo($('#upgrades'), 500); });
-                });
-        </script>
-  <div id="game">
-       <!--<img src="img/IMPORTANT.png" alt="MENU" id="HamS" onclick="shopOpen()">-->
+    <head>
+        <meta charset="UTF-8">
+        <title>Cookie Clicker rework</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        
+        <div id="container">
 
-        <img src="img/cookie.png" alt="Cookie" class="cookie active" onclick="addMoney(Click);"><br />
-       <div class="counter">
-        <span id="MoneyCount">0</span>
-        <img src="img/Dollar.png" alt="Cookie" class="miniCookie"><br />
-        <button class="save BT" onclick="Save()">SAVE</button>
-           <button class="load BT" onclick="Load()">LOAD</button>
-        <button class="reset BT" onclick="Reset()">RESET</button><br />
-<!--              ----- GO TO-->
-                <a class="goTo" id="link1" href="#">SHOP</a><br />
-                <a class="goTo" id="link3" href="#">UPGRADES</a>
-       </div>
-   </div>
-   <img src="img/IMP.png" alt="">
-      <!--Shop----------------------------SHOP--------------------------------------------------->
-<div class="shop" style="display: block;">
+                <div id="game-base">
+                    
+                    <img class="cookie" src="img/cookie.png" alt="cookie image">
 
-    <span class="Shop">Shop</span><br />
-    
-    <span class="shopB">Bakers: </span><span id="Bakers">0</span><br />
-    <span class="Cost">Cost: </span><span id="BakersCost">20</span><br />
-    <button class="buyBT" onclick="BuyBakers();">-!BUY!-</button><br />
+                    <div class="money">
 
-    <span>------</span><br />
+                        <h1>Money: <span id="money">0</span></h1>
 
-    <span class="shopB">Grandmas: </span><span id="Grandma">0</span><br />
-    <span class="Cost">Cost: </span><span id="GrandmaCost">400</span><br />
-    <button class="buyBT" onclick="BuyGrandma();">-!BUY!-</button><br />
-    
-     <span>------</span><br />
-     <a href="#" id="link7">Go DOWN</a><br />
+                    </div>
 
-    <span class="shopB">Grandad: </span><span id="Grandad">0</span><br />
-    <span class="Cost">Cost: </span><span id="GrandadCost">1000</span><br />
-    <button class="buyBT" onclick="BuyGrandad();">-!BUY!-</button><br />
-    
-    <span>------</span><br />
-    <span class="shopB">CookieRoobot: </span><span id="CookieRoobot">0</span><br />
-    <span class="Cost">Cost: </span><span id="CookieRoobotCost">300</span><br />
-    <button class="buyBT" onclick="BuyCookieRoobot();">-!BUY!-</button><br />
-    
-    <a href="#" id="link8">Go UP (SHOP)</a><br />   
-    <!---------------------------------------------------------------- GO TO-->
-    <a class="goTo" id="link2" href="#">GAME</a><br />
-    <a class="goTo" id="link5" href="#">UPGRADES</a>
-    </div>
-    <img src="img/IMP.png" alt="">
-    
-<!------------------------------------------------------------------------------------------->
-   <div class="shop">
-    <span id="upgrades">UPGRADES:</span><br />
+                    <div class="cheat">
+                        <button id="addMoney">Cheat +1k</button>
+                        <button id="clickPower10">Click power 10k</button>
+                    </div>
 
-    <span class="shopB">Improvements to bakers (x2): </span><span id="BakersUpgrade">0</span><br />
-    <span class="Cost">Cost: </span><span id="BakersUpgradeCost">200</span><br />
-    <button class="buyBT" onclick="BuyBakersUpgrade();">-!BUY!-</button><br />
-    
-    <span>------</span><br />
-    <span class="shopB">Improvements to grandma (x2): </span><span id="GrandmaUpgrade">0</span><br />
-    <span class="Cost">Cost: </span><span id="GrandmaUpgradeCost">425</span><br />
-    <button class="buyBT" onclick="BuyGrandmaUpgrade();">-!BUY!-</button><br />
-    
-    <span>------</span><br />
-    <a href="#" id="link9">Go DOWN</a><br />
-    
-    <span class="shopB">Improvements to grandad (x2): </span><span id="GrandadUpgrade">0</span><br />
-    <span class="Cost">Cost: </span><span id="GrandadUpgradeCost">800</span><br />
-    <button class="buyBT" onclick="BuyGrandadUpgrade();">-!BUY!-</button><br />
-    
-    <span>------</span><br />
-    
-    <span class="BakersUpgrade">Click UPGRADE: </span><span id="ClicksUpgrade">0</span><br />
-    <span class="Cost">Cost: </span><span id="ClickUpgradeCost">30</span><br />
-    <button class="buyBT" onclick="BuyClickUpgrade();">-!BUY!-</button><br />
-    <span>------</span><br />
-    <a href="#" id="link10">Go UP (UPGRADES)</a><br />
-<!--    ------------------------------------------------------GO TO-->
-    <a class="goTo" id="link6" href="#">GAME</a><br />
-    <a class="goTo" id="link4" href="#">SHOP</a>
-        <img src="img/IMP.png" alt="">
-  </div>
-   <script src="game.js"></script>
-</body>
+                </div>
+
+            </div>
+
+        </div>
+
+        <script src="js/game.js"></script>
+
+    </body>
 </html>
-=======
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Clicker Cookie By TheBartle</title>
-    <link rel="stylesheet" href="main.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="jquery.scrollTo.min.js"></script>
-</head>
-<body scroll="no">
-        <script>
-            jQuery(function($)
-		{
-			//zresetuj scrolla
-			$.scrollTo(0);
-                  $('#link1').click(function() { $.scrollTo($('.shop'), 500); });
-                  $('#link2').click(function() { $.scrollTo($('body'), 500); });
-                  $('#link6').click(function() { $.scrollTo($('body'), 1000); });
-                  $('#link3').click(function() { $.scrollTo($('#upgrades'), 1000); });
-                  $('#link4').click(function() { $.scrollTo($('.shop'), 500); });
-                  $('#link5').click(function() { $.scrollTo($('#upgrades'), 500); });
-                });
-        </script>
-  <div id="game">
-       <!--<img src="img/IMPORTANT.png" alt="MENU" id="HamS" onclick="shopOpen()">-->
-
-        <img src="img/cookie.png" alt="Cookie" class="cookie active" onclick="addMoney(Click);"><br />
-       <div class="counter">
-        <span id="MoneyCount">0</span>
-        <img src="img/Dollar.png" alt="Cookie" class="miniCookie"><br />
-        <button class="save BT" onclick="Save()">SAVE</button>
-           <button class="load BT" onclick="Load()">LOAD</button>
-        <button class="reset BT" onclick="Reset()">RESET</button><br />
-<!--              ----- GO TO-->
-                <a class="goTo" id="link1" href="#">SHOP</a><br />
-                <a class="goTo" id="link3" href="#">UPGRADES</a>
-       </div>
-   </div>
-   <img src="img/IMP.png" alt="">
-      <!--Shop----------------------------SHOP--------------------------------------------------->
-<div class="shop" style="display: block;">
-
-    <span class="Shop">Shop</span><br />
-    
-    <span class="shopB">Bakers: </span><span id="Bakers">0</span><br />
-    <span class="Cost">Cost: </span><span id="BakersCost">20</span><br />
-    <button class="buyBT" onclick="BuyBakers();">-!BUY!-</button><br />
-
-    <span>------</span><br />
-
-    <span class="shopB">Grandmas: </span><span id="Grandma">0</span><br />
-    <span class="Cost">Cost: </span><span id="GrandmaCost">400</span><br />
-    <button class="buyBT" onclick="BuyGrandma();">-!BUY!-</button><br />
-    
-     <span>------</span><br />
-
-    <span class="shopB">Grandad: </span><span id="Grandad">0</span><br />
-    <span class="Cost">Cost: </span><span id="GrandadCost">1000</span><br />
-    <button class="buyBT" onclick="BuyGrandad();">-!BUY!-</button><br />
-    
-    <!---------------------------------------------------------------- GO TO-->
-    <a class="goTo" id="link2" href="#">GAME</a><br />
-    <a class="goTo" id="link5" href="#">UPGRADES</a>
-    </div>
-    <img src="img/IMP.png" alt="">
-    
-<!------------------------------------------------------------------------------------------->
-   <div class="shop">
-    <span id="upgrades">UPGRADES:</span><br />
-
-    <span class="shopB">Improvements to bakers (x2): </span><span id="BakersUpgrade">0</span><br />
-    <span class="Cost">Cost: </span><span id="BakersUpgradeCost">200</span><br />
-    <button class="buyBT" onclick="BuyBakersUpgrade();">-!BUY!-</button><br />
-    
-    <span>------</span><br />
-    <span class="shopB">Improvements to grandma (x2): </span><span id="GrandmaUpgrade">0</span><br />
-    <span class="Cost">Cost: </span><span id="GrandmaUpgradeCost">425</span><br />
-    <button class="buyBT" onclick="BuyGrandmaUpgrade();">-!BUY!-</button><br />
-    
-    <span>------</span><br />
-    
-    <span class="BakersUpgrade">Click UPGRADE: </span><span id="ClicksUpgrade">0</span><br />
-    <span class="Cost">Cost: </span><span id="ClickUpgradeCost">30</span><br />
-    <button class="buyBT" onclick="BuyClickUpgrade();">-!BUY!-</button><br />
-    <span>------</span><br />
-<!--    ------------------------------------------------------GO TO-->
-    <a class="goTo" id="link6" href="#">GAME</a><br />
-    <a class="goTo" id="link4" href="#">SHOP</a>
-        <img src="img/IMP.png" alt="">
-  </div>
-   <script src="game.js"></script>
-</body>
-</html>
->>>>>>> eaa37813cc48688df64c67f5a129eb4a17ddc75a
