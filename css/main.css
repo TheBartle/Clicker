@@ -19,3 +19,20 @@ body{
 .clicked{
     transform: scale(0.95, 0.95);
 }
+
+.progress{
+    margin: 5px;
+}
+
+button{
+    border: solid 1px white;
+    font-size: 20px;
+    border-radius: 6px;;
+    color:white;
+    background: none;
+    transition: 300ms;
+}
+button:hover{
+    background: #f5f5f5;
+    color: black;
+}

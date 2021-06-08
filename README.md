@@ -4,7 +4,7 @@ It's been 1349 days since the last update...
 
 ## UPDATES
 
-> LAST UPDATE ***DATE:*** **08.06.2021** / ***TIME:*** **02:20**
+> LAST UPDATE ***DATE:*** **08.06.2021** | ***TIME:*** **02:20**
 
 > LAST UPDATE ***DATE:*** **02.10.2017**  | ***TIME:*** **20:30**
 

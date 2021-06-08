@@ -1,8 +1,3 @@
-<?php
-
-if(isset($_POST[]))
-
-?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -18,17 +13,29 @@ if(isset($_POST[]))
 
                 <div id="game-base">
                     
-                    <img class="cookie" src="img/cookie.png" alt="cookie image">
+                    <img class="cookie" src="img/coal.png" alt="cookie image">
 
                     <div class="money">
 
-                        <h1>Money: <span id="money">0</span></h1>
+                        <h1>Coal: <span id="coal">0</span> </h1>
+                        <h1>Coal price: <span id="coalPrice">0.2</span> $</h1>
 
+                        <h1>Money: <span id="money">0</span> $</h1>
+
+                    </div>
+
+                    <div class="sell">
+                        <button class="sell">Sell</button>
                     </div>
 
                     <div class="cheat">
                         <button id="addMoney">Cheat +1k</button>
-                        <button id="clickPower10">Click power 10k</button>
+                        <button id="clickPower10">Click power 10</button>
+                    </div>
+
+                    <div class="progress">
+                        <button id="save">Save</button>
+                        <button id="load">Load</button>
                     </div>
 
                 </div>
